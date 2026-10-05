@@ -1,0 +1,57 @@
+<section class="card">
+
+    <h2>Hệ thống quản lý sách</h2>
+
+    <p>
+        Ứng dụng Web triển khai trên môi trường Cloud
+        với MongoDB Atlas và Node.js/Express.
+    </p>
+
+    <h3>Thông tin cá nhân hóa</h3>
+
+    <p>
+        MSSV:
+        <strong>{{mssv}}</strong>
+    </p>
+
+    <p>
+        Prefix mã sản phẩm:
+        <strong>{{productPrefix}}</strong>
+    </p>
+
+    <p>
+        VAT:
+        <strong>{{vatPercent}}%</strong>
+    </p>
+
+    <h3>Trạng thái Session</h3>
+
+    {{#if isLoggedIn}}
+
+        <p>
+            Đang đăng nhập:
+            <strong>{{currentUser.name}}</strong>
+        </p>
+
+        <p>
+            Số lần truy cập session:
+            <strong>{{sessionViews}}</strong>
+        </p>
+
+        <a class="button" href="/books">
+            Quản lý sách
+        </a>
+
+    {{else}}
+
+        <p>
+            Chưa có session đăng nhập.
+        </p>
+
+        <a class="button" href="/login">
+            Tạo session demo
+        </a>
+
+    {{/if}}
+
+</section>

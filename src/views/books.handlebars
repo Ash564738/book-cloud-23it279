@@ -1,0 +1,180 @@
+<section class="card">
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>Danh sách sách</h2>
+
+            <p>
+                GET /books sử dụng
+                <strong>READ USER</strong>.
+            </p>
+
+        </div>
+
+        <a class="button" href="/session-test">
+            Kiểm tra Session
+        </a>
+
+    </div>
+
+    {{#if error}}
+
+        <div class="alert error">
+            {{error}}
+        </div>
+
+    {{/if}}
+
+    {{#if success}}
+
+        <div class="alert success">
+            {{success}}
+        </div>
+
+    {{/if}}
+
+    {{#if isLoggedIn}}
+
+        <div class="form-box">
+
+            <h3>Thêm sách</h3>
+
+            <form
+                method="POST"
+                action="/books"
+            >
+
+                <label>
+                    Mã sản phẩm
+                </label>
+
+                <input
+                    type="text"
+                    name="productCode"
+                    placeholder="279001"
+                    required
+                >
+
+                <small>
+                    Mã phải bắt đầu bằng
+                    {{productPrefix}}.
+                </small>
+
+                <label>
+                    Tên sách
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Lập trình Node.js"
+                    required
+                >
+
+                <label>
+                    Giá gốc
+                </label>
+
+                <input
+                    type="number"
+                    name="price"
+                    min="1"
+                    step="0.01"
+                    placeholder="100000"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="button"
+                >
+                    Thêm sách
+                </button>
+
+            </form>
+
+        </div>
+
+    {{else}}
+
+        <div class="alert">
+            Hãy đăng nhập demo để sử dụng chức năng thêm sách.
+        </div>
+
+    {{/if}}
+
+</section>
+
+
+<section class="card">
+
+    <h3>Dữ liệu từ MongoDB Atlas</h3>
+
+    {{#if books.length}}
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sách</th>
+                    <th>Giá gốc</th>
+                    <th>VAT</th>
+                    <th>Tiền VAT</th>
+                    <th>Giá sau thuế</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {{#each books}}
+
+                    <tr>
+
+                        <td>
+                            {{productCode}}
+                        </td>
+
+                        <td>
+                            {{name}}
+                        </td>
+
+                        <td>
+                            {{currency originalPrice}}
+                        </td>
+
+                        <td>
+                            {{vatPercent}}%
+                        </td>
+
+                        <td>
+                            {{currency vatAmount}}
+                        </td>
+
+                        <td>
+                            <strong>
+                                {{currency priceAfterTax}}
+                            </strong>
+                        </td>
+
+                    </tr>
+
+                {{/each}}
+
+            </tbody>
+
+        </table>
+
+    {{else}}
+
+        <p>
+            Chưa có dữ liệu.
+        </p>
+
+    {{/if}}
+
+</section>

@@ -1,0 +1,28 @@
+{
+  "name": "book-cloud-23it279",
+  "version": "1.0.0",
+  "description": "Cloud computing midterm project - Book Management",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^17.0.0",
+    "express": "^5.0.0",
+    "express-handlebars": "^8.0.0",
+    "express-session": "^1.18.0",
+    "mongodb": "7.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

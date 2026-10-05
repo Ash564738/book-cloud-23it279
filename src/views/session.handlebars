@@ -1,0 +1,44 @@
+<section class="card">
+
+    <h2>MongoDB Session Test</h2>
+
+    {{#if sessionData}}
+
+        <p>
+            Session đang hoạt động.
+        </p>
+
+        <h3>Session ID</h3>
+
+        <pre>{{sessionId}}</pre>
+
+        <h3>Session Data</h3>
+
+        <pre>{{sessionData}}</pre>
+
+        <p>
+            Session views:
+            <strong>{{sessionViews}}</strong>
+        </p>
+
+        <p>
+            Session store:
+            <strong>MongoDB Atlas</strong>
+        </p>
+
+    {{else}}
+
+        <p>
+            Chưa đăng nhập.
+        </p>
+
+        <a
+            class="button"
+            href="/login"
+        >
+            Tạo session
+        </a>
+
+    {{/if}}
+
+</section>

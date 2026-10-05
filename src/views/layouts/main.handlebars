@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>{{title}}</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="container">
+
+            <h1>Quản lý sách Cloud</h1>
+
+            <nav>
+
+                <a href="/">
+                    Trang chủ
+                </a>
+
+                <a href="/books">
+                    Danh sách sách
+                </a>
+
+                <a href="/session-test">
+                    Session Test
+                </a>
+
+                {{#if isLoggedIn}}
+
+                    <a href="/logout">
+                        Đăng xuất
+                    </a>
+
+                {{else}}
+
+                    <a href="/login">
+                        Đăng nhập demo
+                    </a>
+
+                {{/if}}
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        {{{body}}}
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                Họ tên:
+                <strong>{{fullName}}</strong>
+            </p>
+
+            <p>
+                MSSV:
+                <strong>{{mssv}}</strong>
+            </p>
+
+            <p>
+                VAT áp dụng:
+                <strong>{{vatPercent}}%</strong>
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
